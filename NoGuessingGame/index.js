@@ -4,15 +4,18 @@ const answer = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
 const MyInput = document.getElementById("MyInput");
 const MyButton = document.getElementById("MyButton");
 const result = document.getElementById("result");
+const MyLabel = document.getElementById("MyLabel");
+
+MyLabel.textContent = `Enter any nimber from ${minNum} to ${maxNum}`
 
 let running = true;
 let guess;
 let attempts = 0;
 
-while(running){
     MyButton.onclick = function(){
-        guess = MyInput.textContent;
+        guess = MyInput.value;
         guess = Number(guess);
+        console.log(guess);
 
         if(isNaN(guess)){
             result.textContent = `Enter an Valid text!`;
@@ -29,9 +32,8 @@ while(running){
                 result.textContent = `TOO HIGH! TRY AGAIN`;
             }
             else{
-                result.taxtContent = `CORRECT! answer is ${answer}. No of attempts is ${attempts} attempts`
+                result.textContent = `CORRECT! answer is ${answer}. No of attempts are ${attempts}`
                 running = false;
             }
         }
     }
-}

@@ -274,3 +274,62 @@ else{
     console.log("This is NOT PI");
 }
 ``` 
+
+## 14. Function
+- A section of reusable code
+- Declare code once, use it whenever you want
+- Call the function to execute the code
+- `SEQUENCE` does matter while passing the arguments
+```javascript
+function happyBirthday(username, age){
+    console.log(`Happ birthday ${username}`);
+    console.log(`You are ${age} years old`)
+}
+
+happyBirthday("Ashutosh", 18);
+happyBirthday("Prathamesh", 20);
+
+//using return keyword
+function isValidEmail(email){
+
+    if(email.includes("@")){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+console.log(isValidEmail("ashutishgandulegmail.com")); //False
+``` 
+
+## 15. Variablr Scope
+- where an element is recognized and accessible `LOCAL vs GLOBAL`
+- Any variable declared under a `Function`, `Set of curly brases`
+- If there is choice between `LOCAL` and `GLOBAL` more priority is given to local variablea 
+```javascript
+function function1(){
+    let x = 5; //Local
+    console.log(x);
+}
+
+function function2(){
+    let x = 9; //Local
+    console.log(x);
+}
+
+function1(); // -> 5
+
+//Global
+let x = 3;
+
+function function1(){
+    console.log(x);
+}
+function function2(){
+    console.log(x);
+}
+
+function1(); //3
+function2(); //3
+``` 

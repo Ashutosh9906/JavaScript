@@ -6,7 +6,7 @@ const MyButton = document.getElementById("MyButton");
 const result = document.getElementById("result");
 const MyLabel = document.getElementById("MyLabel");
 
-MyLabel.textContent = `Enter any nimber from ${minNum} to ${maxNum}`
+MyLabel.textContent = `Enter any number from ${minNum} to ${maxNum}`
 
 let running = true;
 let guess;

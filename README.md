@@ -333,3 +333,20 @@ function function2(){
 function1(); //3
 function2(); //3
 ``` 
+
+## 16. Arrays
+- A variable like structure that can hold more than 1 value.
+```javascript
+let fruits = {"Mango", "Orange", "Apple"};
+
+fruits.push("Coconut") //pushes an element to the end of the array
+fruits.pop(); //removes the last element from the array
+fruits.unshift("Apple"); //push the element at the start shifts the array forward
+fruits.shift(); //to remove the element from the begining of array
+fruits.length(); //passes No of elements in the array (Size of array)
+fruits.indexof("Apple"); //passes endex of written element -> 2, if the element does'nt exist it passes -1
+
+console.log(fruits[0]); //Mango
+console.log(fruits[1]); //Orange
+console.log(fruits[2]); //Apple
+``` 

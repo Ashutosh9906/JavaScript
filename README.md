@@ -4,6 +4,9 @@
     //This is used to add any pop up to the website 
     document.getElementById("MyH1").textContent = `Hello`;
     document.getElementById("MyP").textContent = 'I love pizza';
+
+    // using innerHTMl we can insert html through javascript
+    document.getElementById("MyH").innerHTML = `<p>brr brr patapim</p>`
 ```
 ## 1. Variables 
 - A container that stores the value, Behaves as if it were the value it contains

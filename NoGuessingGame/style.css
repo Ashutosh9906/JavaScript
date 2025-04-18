@@ -18,7 +18,10 @@
     transition: background-color 0.25s;
 }
 #MyButton:hover{
-    background-color: #F75A5A;
+    background-color: hsl(0, 91%, 66%);
+}
+#MyButton:active{
+    background-color: #FFA955;
 }
 #MyInput{
     font-size: 1.5rem;

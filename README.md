@@ -345,8 +345,62 @@ fruits.unshift("Apple"); //push the element at the start shifts the array forwar
 fruits.shift(); //to remove the element from the begining of array
 fruits.length(); //passes No of elements in the array (Size of array)
 fruits.indexof("Apple"); //passes endex of written element -> 2, if the element does'nt exist it passes -1
+fruits.sort(); //sorts the element of array in Alphabetical order
+fruits.sort().reverse(); //sorts the element of array in Alphabetical order and then reverse the rder
 
 console.log(fruits[0]); //Mango
 console.log(fruits[1]); //Orange
 console.log(fruits[2]); //Apple
+
+for(let fruit of fruits){   //Diff way to access element of array fruits
+    console.log(fruit);     //name of variable(fruit) can be changed as per need
+}
+``` 
+
+## 17. Spread Operator
+- It is represented as `...`.
+- `...` allows an iterable such as an array or string to be extended into seperate element (Unpack the elements)
+```javascript
+let number = [1, 2, 3, 4, 5];
+
+let max = Math.max(...number); //without (...) output is NAN, using (...) we unpack all the  
+let min = Math.min(...number); //elements of the array like removing all elements from the box
+
+console.log(max);
+console.log(min);
+
+//can also used in case of string 
+let username = "Vada pav";
+let letters = [...username].join('-'); //leterrs seperated 
+//using join('-') it will join the seperated string with -
+
+console.log(letters);
+
+//Can make a copy of an array, or combine two array
+let fruits = ["Apple", "Orange", "Coconut"];
+let snacks = ["Vada pav", "Samosa", "Kachori"];
+
+let newFruits = [...fruits, ...snacks, "Eggs", "Milks"];
+
+console.log(newFruits);
+``` 
+
+## 18. Rest parameters
+- `...rest` allowa a funnction work wit a variable number of arguments by bundling them into an array
+- `spread` -> expands an array into seperate elements
+- `rest` -> bundles seperate elements into array
+```javascript
+function openFridge(...foods){ //used rest parameter to combine all the food into one single foods
+    console.log(foods); // -> "Vada Pav", "Dosa", "Samosa", "Puran Poli", "Varan Bhat"
+    console.log(...foods); //This is spread operator to unpack the array
+    // -> Vada Pav Dosa Samosa Puran Poli Varan Bhat
+}
+
+let food1 = "Vada Pav";
+let food2 = "Dosa";
+let food3 = "Samosa";
+let food4 = "Puran Poli";
+let food5 = "Varan Bhat";
+
+openFridge(food1, food2, food3, food4, food5);
 ``` 

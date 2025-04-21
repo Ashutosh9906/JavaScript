@@ -1,13 +1,14 @@
-function openFridge(...foods){ //used rest parameter to combine all the food into one single foods
-    console.log(foods); // -> "Vada Pav", "Dosa", "Samosa", "Puran Poli", "Varan Bhat"
-    console.log(...foods); //This is spread operator to unpack the array
-    // -> Vada Pav Dosa Samosa Puran Poli Varan Bhat
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(power);
+numbers.forEach(display);
+
+function double(element, index, array){
+    array[index] = element * 2;
 }
-
-let food1 = "Vada Pav";
-let food2 = "Dosa";
-let food3 = "Samosa";
-let food4 = "Puran Poli";
-let food5 = "Varan Bhat";
-
-openFridge(food1, food2, food3, food4, food5);
+function power(element, index, array){
+    array[index] = Math.pow(element, 2);
+}
+function display(element){
+    console.log(element);// 1 2 3 4 5
+}

@@ -22,6 +22,8 @@
   - [16. Arrays](#16-arrays)
   - [17. Spread Operator](#17-spread-operator)
   - [18. Rest parameters](#18-rest-parameters)
+  - [19. CallBacks](#19-callbacks)
+  - [20. ForEach Loop](#20-foreach-loop)
 
 ## 0. Extra`s
 ```javascript
@@ -31,6 +33,20 @@
 
     // using innerHTMl we can insert html through javascript
     document.getElementById("MyH").innerHTML = `<p>brr brr patapim</p>`
+
+    //bit lagg to compute a specific task, implmenting a delay
+    hello();
+    goodBye();
+
+    function hello(){
+        setTimeout(function(){
+            console.log("GoodBye!"); //This line wil be displaced after 3000ms
+        }, 3000);
+    }
+
+    function goodBye(){
+        console.log("Hello!");
+    }
 ```
 - [To Table of Content](#table-of-content)
 
@@ -452,4 +468,47 @@ let food5 = "Varan Bhat";
 
 openFridge(food1, food2, food3, food4, food5);
 ``` 
+- [To Table of Content](#table-of-content)
+
+## 19. CallBacks
+- A function that is passed as an argument to another function
+- Used to handle `asynchronous` operations:
+  1. Reading a file
+  2. Network Request
+  3. Interacting with Databases
+- It simpley is "Hey when you're done, call this next";
+- It used to set a flow of function to ensure that the following function executes after the desired functionn
+```javascript
+sum(displayConsole, 1, 2)
+
+function sum(callback, x, y){
+    let result = x + y;
+    callback(result);
+}
+
+function displayConsole(result){
+    console.log(result);
+}
+```
+- [To Table of Content](#table-of-content)
+
+## 20. ForEach Loop
+- Method used to iterate over the elements of an array and apply a specified function `(callbacks)` to each element
+- Example <`array.forEach(callback)`> element, index, array are provided
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(power);
+numbers.forEach(display);
+
+function double(element, index, array){
+    array[index] = element * 2;
+}
+function power(element, index, array){
+    array[index] = Math.pow(element, 2);
+}
+function display(element){
+    console.log(element);// 1 2 3 4 5
+}
+```
 - [To Table of Content](#table-of-content)

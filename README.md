@@ -32,6 +32,8 @@
     // using innerHTMl we can insert html through javascript
     document.getElementById("MyH").innerHTML = `<p>brr brr patapim</p>`
 ```
+- [To Table of Content](#table-of-content)
+
 ## 1. Variables 
 - A container that stores the value, Behaves as if it were the value it contains
 ```javascript
@@ -69,6 +71,7 @@
     document.getElementById(`P2`).textContent = `I am ${age} years old`;
     document.getElementById(`P3`).textContent = `Am i a student ${isStudent}`;
 ```
+- [To Table of Content](#table-of-content)
 
 ## 2. Arithmatic operator
 - operands(values, variables, etc)
@@ -92,6 +95,8 @@ student %= 2;
 
 let result = 1 + 2 * 3 + 4 ** 2;
 ``` 
+- [To Table of Content](#table-of-content)
+
 ## 3. Accept user input
 - 1. Easy way = window.prompt
 - 2. PROFFESSIONAL WAY = HTML textbox
@@ -115,6 +120,8 @@ let result = 1 + 2 * 3 + 4 ** 2;
     <input type="text" id="MyInput"><br>
     <button id="MyButton">Subimt</button>
 ```
+- [To Table of Content](#table-of-content)
+
 ## 4. Type Conversion
 - usualy when we declare any variable it is an string datatype
 ```javascript
@@ -126,6 +133,7 @@ let result = 1 + 2 * 3 + 4 ** 2;
     age = Stirng(age);   //More example
     age = Boolean(age);
 ```
+- [To Table of Content](#table-of-content)
 
 ## 5. Declaring Constant
 - to make any variable const replace `let` with `const` and make the name of variable uppercase
@@ -149,6 +157,7 @@ document.getElementById("MyButton").onclick = function(){
     <button id="MyButton">SUBMIT</button>
     <h3 id="MyH3"></h3>
 ```
+- [To Table of Content](#table-of-content)
 
 ## 6. Math Library
 - built in object that provides a collection of properties and methods
@@ -172,6 +181,7 @@ z = Math.sign(x) //sign of x -3.21 -> -1, 3.21 -> +1, 0 -> 0
 let max = Math.max(x, y, z) //Greatest of given variable
 let min = Math.min(x, y, z) //Smallest of given variable
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 7. Random Number Generator
 - To generate a random number we use `Math` function 
@@ -184,6 +194,7 @@ let random = Math.floor(Math.random() * (max -min)) + min;
 
 console.log(random);
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 8.ternary operator
 - A shortcut to `if{}` and `else{}` statements
@@ -194,6 +205,7 @@ let purchaseamount = 125;
 let discount = purchaseamount > 100 ? 10 : 0;
 console.log(`Your total is $${purchaseamount - purchaseamount * (discount/100)}`);
 ```     
+- [To Table of Content](#table-of-content)
 
 ## 9. Switch
 - can be an efficient replacement to many else if statements
@@ -216,7 +228,8 @@ switch(true){
         break;
 }
 console.log(lettergrade);
-``` 
+```
+- [To Table of Content](#table-of-content) 
 
 ## 10. String Methods
 - Allows you to manipulate and work with text(String)
@@ -247,6 +260,7 @@ phoneNUmber.replaceAll("-", " "); //used to repplace all charchter before the se
 phoneNumber.padStart(15, "0"); //first No signifys the number of charachter string must have, second numer is included to the string at the start until the length of string reaches it's desire length mentioned in the first No -> 000123-456-7890
 phoneNumber.padEnd(15, "0"); //first No signifys the number of charachter string must have, second numer is included to the string at the end until the length of string reaches it's desire length mentioned in the first No -> 000123-456-7890
 ```
+- [To Table of Content](#table-of-content)
 
 ## 11. String slicing
 - creating a substring from a portion of another string
@@ -261,6 +275,7 @@ let extension = email.slice(email.indexOf("@")+1); //in this case without end it
 console.log(username);
 console.log(extension);
 ```
+- [To Table of Content](#table-of-content)
 
 ## 12. Method Chaining
 - Insted of writing several line of to accomplish a set of condition we can do `Method chaining`
@@ -285,6 +300,7 @@ username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).to
 
 console.log(username);
 ```
+- [To Table of Content](#table-of-content)
 
 ## 13. Operators
 - ` = ` assignment operator
@@ -301,6 +317,7 @@ else{
     console.log("This is NOT PI");
 }
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 14. Function
 - A section of reusable code
@@ -329,6 +346,7 @@ function isValidEmail(email){
 
 console.log(isValidEmail("ashutishgandulegmail.com")); //False
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 15. Variablr Scope
 - where an element is recognized and accessible `LOCAL vs GLOBAL`
@@ -360,6 +378,7 @@ function function2(){
 function1(); //3
 function2(); //3
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 16. Arrays
 - A variable like structure that can hold more than 1 value.
@@ -383,6 +402,7 @@ for(let fruit of fruits){   //Diff way to access element of array fruits
     console.log(fruit);     //name of variable(fruit) can be changed as per need
 }
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 17. Spread Operator
 - It is represented as `...`.
@@ -411,6 +431,7 @@ let newFruits = [...fruits, ...snacks, "Eggs", "Milks"];
 
 console.log(newFruits);
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 18. Rest parameters
 - `...rest` allowa a funnction work wit a variable number of arguments by bundling them into an array
@@ -431,3 +452,4 @@ let food5 = "Varan Bhat";
 
 openFridge(food1, food2, food3, food4, food5);
 ``` 
+- [To Table of Content](#table-of-content)

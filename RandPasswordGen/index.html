@@ -10,7 +10,7 @@
     <div>
         <h1>Random Password Generator</h1>
         <label for="">Length of Password:</label>
-        <input type="number" min="0" id="textbox"><br>
+        <input type="number" id="textbox"><br>
 
         <input type="checkbox" name="" id="includeUppercase">
         <label for="includeUppercase">Upper Case</label><br>
@@ -24,7 +24,7 @@
         <input type="checkbox" id="includeSymbols">
         <label for="includeSymbols">Symbols</label><br><br>
 
-        <button id="button">Generate</button>
+        <button id="button" onclick="generatePassword()">Generate</button>
 
         <p>Generated Password: </p>
         <p id="password"></p>

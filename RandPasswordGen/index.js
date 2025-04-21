@@ -1,4 +1,4 @@
-const passwordLength = 12;
+const passwordLength = document.getElementById("textbox");
 const includeUppercase = document.getElementById("includeUppercase");
 const includeLowercase = document.getElementById("includeLowercase");
 const includeNumbers = document.getElementById("includeNumbers");
@@ -6,48 +6,32 @@ const includeSymbols = document.getElementById("includeSymbols");
 const finalPassword = document.getElementById("password");
 const button = document.getElementById("button");
 
-function generatePassword(length, includeUppercase, includeLowercase, includeNumbers, includeSymbols){
+function generatePassword(){
 
-    const uppercasse = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const numbers = "1234567890";
-    const symbols = "!@#$%^&*()_+-=";
+    const symbols  = "!@#$%^&*()_+-=<>";
 
-    let allowedChars = "";
     let password = "";
+    let allowedchar = "";
 
-    // allowedChars += includeUppercase.checked ? uppercasse : "";
-    // allowedChars += includeLowercase.checked ? lowercase : "";
-    // allowedChars += includeNumbers.checked ? numbers : "";
-    // allowedChars += includeSymbols.checked ? symbols : "";
+    allowedchar += includeUppercase.checked ? uppercase : "";
+    allowedchar += includeLowercase.checked ? lowercase : "";
+    allowedchar += includeNumbers.checked ? numbers : "";
+    allowedchar += includeSymbols.checked ? symbols : "";
 
-    if(includeUppercase){
-        allowedChars += uppercasse;
+    if(passwordLength.value <= 0){
+        finalPassword.textContent = "Length must be greater than 1";
     }
-    if(includeLowercase){
-        allowedChars += lowercase;
+    else if(allowedchar.length === 0){
+        finalPassword.textContent = "You must select atleast one option";
     }
-    if(includeNumbers){
-        allowedChars += numbers;
+    else{
+        for(let i = 0; i<passwordLength.value; i++){
+            let randomIndex = Math.floor(Math.random() * allowedchar.length);
+            password += allowedchar[randomIndex];
+        }
+        finalPassword.textContent = password;
     }
-    if(includeSymbols){
-        allowedChars += symbols;
-    }
-
-    if(length <= 0){
-        return `(password length must be st least 1)`;
-    }
-    if(allowedChars.length === 0){
-        return `(Atleast 1 set of charachter needs to be selected)`;
-    }
-
-    for(let i=0; i<length; i++){
-        const randomindex = Math.floor(Math.random() * allowedChars.length);
-        password += allowedChars[randomindex];
-    }
-    
-    finalPassword.textContent = password;
 }
-
-button.onclick = generatePassword(passwordLength, includeUppercase, includeLowercase, includeNumbers, includeSymbols);
-

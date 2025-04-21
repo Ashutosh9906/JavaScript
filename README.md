@@ -1,4 +1,28 @@
-# JavaScript
+# JAVASCRIPT NOTES
+
+## Table of Content
+- [JAVASCRIPT NOTES](#javascript-notes)
+  - [Table of Content](#table-of-content)
+  - [0. Extra\`s](#0-extras)
+  - [1. Variables](#1-variables)
+  - [2. Arithmatic operator](#2-arithmatic-operator)
+  - [3. Accept user input](#3-accept-user-input)
+  - [4. Type Conversion](#4-type-conversion)
+  - [5. Declaring Constant](#5-declaring-constant)
+  - [6. Math Library](#6-math-library)
+  - [7. Random Number Generator](#7-random-number-generator)
+  - [8.ternary operator](#8ternary-operator)
+  - [9. Switch](#9-switch)
+  - [10. String Methods](#10-string-methods)
+  - [11. String slicing](#11-string-slicing)
+  - [12. Method Chaining](#12-method-chaining)
+  - [13. Operators](#13-operators)
+  - [14. Function](#14-function)
+  - [15. Variablr Scope](#15-variablr-scope)
+  - [16. Arrays](#16-arrays)
+  - [17. Spread Operator](#17-spread-operator)
+  - [18. Rest parameters](#18-rest-parameters)
+
 ## 0. Extra`s
 ```javascript
     //This is used to add any pop up to the website 
@@ -103,7 +127,7 @@ let result = 1 + 2 * 3 + 4 ** 2;
     age = Boolean(age);
 ```
 
-## 5. Const
+## 5. Declaring Constant
 - to make any variable const replace `let` with `const` and make the name of variable uppercase
 ```javascript
 //To find Circumference of circle
@@ -126,7 +150,7 @@ document.getElementById("MyButton").onclick = function(){
     <h3 id="MyH3"></h3>
 ```
 
-## 6. Math
+## 6. Math Library
 - built in object that provides a collection of properties and methods
 ```javascript
 console.log(Math.PI) //Gives the value of universal constant PI -> 3.1415926535

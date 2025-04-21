@@ -1,0 +1,35 @@
+div{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #FF6363;
+    width: 500px;
+    padding: 15px 10px;
+    border-radius: 15px;
+    margin: auto;
+    box-shadow: 5px 5px 15px;
+}
+
+#textbox{
+    text-align:center;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 80px;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 85%);
+}
+
+#button{
+    font-size: 0.9em;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+#button:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+
+#button:active{
+    background-color: hsl(0, 0%, 100%);
+}

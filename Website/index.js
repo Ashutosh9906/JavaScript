@@ -1,14 +1,7 @@
-let numbers = [1, 2, 3, 4, 5];
+const prices = [5, 35, 10, 45, 8];
+const total = prices.reduce(sum);
+console.log(`$${total.toFixed(2)}`);
 
-numbers.forEach(power);
-numbers.forEach(display);
-
-function double(element, index, array){
-    array[index] = element * 2;
-}
-function power(element, index, array){
-    array[index] = Math.pow(element, 2);
-}
-function display(element){
-    console.log(element);// 1 2 3 4 5
+function sum(accumulator, element){
+    return accumulator + element;
 }

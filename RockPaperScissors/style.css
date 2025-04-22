@@ -1,0 +1,26 @@
+body{
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: blanchedalmond;
+}
+#resultImage img{
+    width: 200px;
+    margin: 10px;
+}
+#myBtn{
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(342, 100%, 52%);
+    cursor: pointer;
+}
+#myBtn:hover{
+    background-color:hsl(216, 100%, 50%);
+}
+#myBtn:active{
+    background-color: hsl(342, 100%, 52%);
+}
+p{
+    font-weight: bold;
+}

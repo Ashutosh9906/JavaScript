@@ -23,7 +23,11 @@
   - [17. Spread Operator](#17-spread-operator)
   - [18. Rest parameters](#18-rest-parameters)
   - [19. CallBacks](#19-callbacks)
-  - [20. ForEach Loop](#20-foreach-loop)
+  - [20. ForEach() loop](#20-foreach-loop)
+  - [21. Map() method](#21-map-method)
+  - [22. Filter() method](#22-filter-method)
+  - [23. reduce() method](#23-reduce-method)
+  - [24. Function expression](#24-function-expression)
 
 ## 0. Extra`s
 ```javascript
@@ -47,6 +51,10 @@
     function goodBye(){
         console.log("Hello!");
     }
+
+    //To give any number a precission of 'x' digit after decimal
+    let num = 15;
+    console.log(`$${num.toFixed(2)}`) //-> 15.00
 ```
 - [To Table of Content](#table-of-content)
 
@@ -492,7 +500,7 @@ function displayConsole(result){
 ```
 - [To Table of Content](#table-of-content)
 
-## 20. ForEach Loop
+## 20. ForEach() loop
 - Method used to iterate over the elements of an array and apply a specified function `(callbacks)` to each element
 - Example <`array.forEach(callback)`> element, index, array are provided
 ```javascript
@@ -512,3 +520,68 @@ function display(element){
 }
 ```
 - [To Table of Content](#table-of-content)
+
+## 21. Map() method
+- Accepts a callback and applies that function to each element of an array, then return a new array.
+- The key difference between `forEach` and `map` is forEach changes the orignal array with the new altered array where as map does'nt change the orignal array
+- After the alterations using `map` we still can access our orignal array
+- Map provides only `element`
+```javascript
+//example 1
+const numbers = [1, 2, 3, 4, 5];
+
+const squares = numbers.map(square);
+console.log(squares);
+
+function square(element){
+    return Math.pow(element, 2);
+}
+
+//example 2
+const dates = ["2022-1-10", "2023-2-20", "2024-3-30"];
+const formatedDates = dates.map(format);
+console.log(formatedDates);
+
+function format(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+}
+```  
+- [To Table of Content](#table-of-content)
+
+## 22. Filter() method
+- Creates an new array by filtering out elements
+- It includes the element in the following array if it passes the condition(True);
+```javascript
+const number = [1, 2, 3, 4, 5, 6, 7];
+const evenNums = number.filter(isEven); //alters array according if true
+console.log(evenNums);
+
+function isEven(element){
+    return element%2 === 0; //return an boolean value true/false
+}
+``` 
+- [To Table of Content](#table-of-content)
+
+## 23. reduce() method
+- reduce the element of an array to a single value
+```javascript
+const prices = [5, 35, 10, 45, 8];
+const total = prices.reduce(sum);
+console.log(`$${total.toFixed(2)}`);
+
+function sum(accumulator, element){
+    return accumulator + element;
+}
+```
+- **Explanation** ----->
+  1. Accumulator -> 0, element -> 5, return -> 5
+  2. Accumulator -> 5, element -> 35, return -> 40
+  3. Accumulator -> 40, element -> 10, return -> 50
+  4. Accumulator -> 50, element -> 45, return -> 95
+  5. Accumulator -> 95, element -> 8, return -> 103 **total** -> 103.00
+- [To Table of Content](#table-of-content)
+
+## 24. Function expression
+- `Function expression` - A way to define function as values or variable
+- `Function declaration` - define a reusable block of code that performs a specific task

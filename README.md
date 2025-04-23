@@ -28,6 +28,11 @@
   - [22. Filter() method](#22-filter-method)
   - [23. reduce() method](#23-reduce-method)
   - [24. Function expression](#24-function-expression)
+  - [25. Arrow functions](#25-arrow-functions)
+  - [26. Javascript objects](#26-javascript-objects)
+  - [27. this keyword](#27-this-keyword)
+  - [28. Constructor](#28-constructor)
+  - [29. Classes](#29-classes)
 
 ## 0. Extra`s
 ```javascript
@@ -585,3 +590,154 @@ function sum(accumulator, element){
 ## 24. Function expression
 - `Function expression` - A way to define function as values or variable
 - `Function declaration` - define a reusable block of code that performs a specific task
+- Callback is `asynchronous` operation
+- Higher order function
+- Closures
+- Event Listners
+```javascript
+setTimeout(function(){ 
+    console.log("Hello")
+}, 3000);
+``` 
+- In above example we have an hole function `function()` as an argument which is treated an an value to the function, we currently giving an lag to thee function execution
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6];
+const squares = numbers.map(function(element){
+    return Math.pow(element, 2);
+});
+console.log(squares);
+``` 
+- In above example insted of give call to functio we directly passed the argument as the function itself
+- One of the benifit of using this is we are not polutin the global namespace
+- [To Table of Content](#table-of-content)
+- 
+## 25. Arrow functions
+- A consice way to write function expression good for simple functions that you use only once 
+- syntax :(parameters) => some code
+```javascript
+const hello = (name, age) => {console.log(`Hello ${name}`)
+                              console.log(`You are ${age} years old`)};
+
+hello("Ashu", 18);
+``` 
+- No need tu declare a new function
+- Use when you are going to call the functio just once or twice 
+- Insted of `Function expression` used in above topic we can
+```javascript
+setTimeout( () => console.log("Hello"), 3000); //Just simple as that
+``` 
+- Also used in methods like .map(), .reduce(), etc
+```javascript
+const numbers = [1, 2, 3, 4, 5]
+const squares = numbers.map( (element) => Math.pow(element, 2));
+
+console.log(squares);
+``` 
+- [To Table of Content](#table-of-content)
+- 
+## 26. Javascript objects
+- A collection of related properties and/or methods, Can represent real world objects (people, products, places)
+- object = {key:value, function()}
+- object can't have same name
+```javascript
+const person = { //here person is an object
+    firstname: "Ashutosh",
+    lastname: "Gandule",
+    age: "48",
+    isEmployed: false,
+    sayHello: function(){console.log("Hi i am Ashutosh")},
+}
+
+person.sayHello();
+console.log(person.firstname);
+console.log(person.lastname);
+console.log(person.age);
+console.log(person.isEmployed);
+```   
+- [To Table of Content](#table-of-content)
+
+## 27. this keyword
+- Reference to the object where `this` is used
+- The object depends on the immediate context
+- ex. `person.name = this.name`
+```javascript
+const person = { //here person is an object
+    firstname: "Ashutosh",
+    sayHello: function(){console.log(`Hi i am ${this.firstname}`)},
+}
+
+person.sayHello();
+``` 
+- To access the property of the object in it self we use this.key `this.firstname`
+- This will also work same for object.key `person.firstname` as well
+```javascript 
+console.log(this); 
+```
+- This will return an window object in the whole tab in which we are and it's properties
+- `this` does'nt work for `Arrow function`
+- [To Table of Content](#table-of-content)
+
+## 28. Constructor
+- Special method for defining the properties and method of objects
+- To construct an object automatically all we have to do is to pass in some unique data to construct th object
+```javascript
+function car(make, model, year, color){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    this.drive = function(){console.log(`You are a driving ${this.model}`)}
+}
+
+const car1 = new car("Ford", "Mustang", 1969, "red");
+const car2 = new car("Dodge", "Challenger", 2024, "Blue");
+// use 'new' keyword to assign values to keyobject before call
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.year);
+console.log(car1.color);
+car1.drive();
+
+console.log(car2.make);
+console.log(car2.model);
+console.log(car2.year);
+console.log(car2.color);
+car2.drive();
+``` 
+- [To Table of Content](#table-of-content)
+
+## 29. Classes
+- (ES6 feature) provides a more structured and more cleaner way to work with object compared to traditional constructor functions
+- ex. static keyword, encapsulation, inheritance
+```javascript
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    displayProduct(){   //No need to use functio keyword inside the class
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    }
+
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
+    }
+}
+const salesTax = 0.05;
+
+const product1 = new Product("shirt", 19.99);
+const product2 = new Product("pant", 22.5);
+// Constructor will be called automatically just pass the argument
+
+product1.displayProduct();
+const total1 = product1.calculateTotal(salesTax);
+console.log(`Total price(including tax) is: $${total1.toFixed(2)}`);
+
+product2.displayProduct();
+const total2 = product1.calculateTotal(salesTax);
+console.log(`Total price(including tax) is: $${total2.toFixed(2)}`);
+```  
+- [To Table of Content](#table-of-content)

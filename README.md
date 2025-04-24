@@ -33,6 +33,8 @@
   - [27. this keyword](#27-this-keyword)
   - [28. Constructor](#28-constructor)
   - [29. Classes](#29-classes)
+  - [30. STATIC keyword](#30-static-keyword)
+  - [31. Inheritance](#31-inheritance)
 
 ## 0. Extra`s
 ```javascript
@@ -741,3 +743,85 @@ const total2 = product1.calculateTotal(salesTax);
 console.log(`Total price(including tax) is: $${total2.toFixed(2)}`);
 ```  
 - [To Table of Content](#table-of-content)
+
+## 30. STATIC keyword
+- Ketword that defines properties or method  that belong to a class itself rather than the object created from that class
+- Class owns anything static, not the object
+```javascript
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+
+    static getCircumference(radius){
+        return 2 * this.PI * radius; 
+    }
+}
+
+console.log(MathUtil.PI);
+console.log(MathUtil.getDiameter(10));
+console.log(MathUtil.getCircumference(10));
+```
+- Another example using constructor as well 
+```javascript
+class User{
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+
+    static getUsercount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+
+    sayHello(){
+        console.log(`Hi, My name is ${this.username}`);
+    }
+}
+
+const user1 = new User("Ashutosh");
+const user2 = new User("Prathamesh");
+
+user1.sayHello();
+user2.sayHello();
+User.getUsercount();
+```
+- [To Table of Content](#table-of-content)
+
+## 31. Inheritance
+- Allows a new class to inherit properties and methods of existing class `(parent -> child)` helps with code reusability
+- We use `extend` keyword infront of the child class to inherit the property of the parent class written ahead of it
+```javascript
+class animal{
+    isAlive = true;
+
+    eat(){
+        console.log(`This is ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`This is ${this.name} is sleeping`);
+    }
+}
+class rabbit extends animal{
+    name = "rabbit";
+}
+class fish extends animal{
+    name = "fish";
+}
+class hawk extends animal{
+    name = "hawk";
+}
+
+const rabbits = new rabbit();
+const fishs = new fish();
+const hawks = new hawk();
+
+console.log(rabbits.isAlive);
+rabbits.eat();
+fishs.eat()
+hawks.eat()
+```  

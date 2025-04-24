@@ -24,3 +24,8 @@ body{
 p{
     font-weight: bold;
 }
+
+#action{
+    width: 150px;
+    cursor: pointer;
+}

@@ -1,28 +1,28 @@
-class Product{
-    constructor(name, price){
-        this.name = name;
-        this.price = price;
-    }
+class animal{
+    isAlive = true;
 
-    displayProduct(){   //No need to use functio keyword inside the class
-        console.log(`Product: ${this.name}`);
-        console.log(`Price: $${this.price.toFixed(2)}`);
+    eat(){
+        console.log(`This is ${this.name} is eating`);
     }
-
-    calculateTotal(salesTax){
-        return this.price + (this.price * salesTax);
+    sleep(){
+        console.log(`This is ${this.name} is sleeping`);
     }
 }
-const salesTax = 0.05;
+class rabbit extends animal{
+    name = "rabbit";
+}
+class fish extends animal{
+    name = "fish";
+}
+class hawk extends animal{
+    name = "hawk";
+}
 
-const product1 = new Product("shirt", 19.99);
-const product2 = new Product("pant", 22.5);
-// Constructor will be called automatically just pass the argument
+const rabbits = new rabbit();
+const fishs = new fish();
+const hawks = new hawk();
 
-product1.displayProduct();
-const total1 = product1.calculateTotal(salesTax);
-console.log(`Total price(including tax) is: $${total1.toFixed(2)}`);
-
-product2.displayProduct();
-const total2 = product1.calculateTotal(salesTax);
-console.log(`Total price(including tax) is: $${total2.toFixed(2)}`);
+console.log(rabbits.isAlive);
+rabbits.eat();
+fishs.eat()
+hawks.eat()

@@ -1,28 +1,35 @@
-class animal{
-    isAlive = true;
-
-    eat(){
-        console.log(`This is ${this.name} is eating`);
-    }
-    sleep(){
-        console.log(`This is ${this.name} is sleeping`);
+class Animal{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
     }
 }
-class rabbit extends animal{
-    name = "rabbit";
+class Rabbit extends Animal{
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
 }
-class fish extends animal{
-    name = "fish";
+class Fish extends Animal{
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
 }
-class hawk extends animal{
-    name = "hawk";
+class Hawk extends Animal{
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
 }
 
-const rabbits = new rabbit();
-const fishs = new fish();
-const hawks = new hawk();
+const rabbit = new Rabbit("rabbit", 10, 25);
+const fish = new Fish("fish", 25, 56);
+const hawk = new Hawk("hawk", 18, 70);
 
-console.log(rabbits.isAlive);
-rabbits.eat();
-fishs.eat()
-hawks.eat()
+console.log(fish.name);
+console.log(fish.age);
+console.log(fish.swimSpeed)
+
+//Before using this keyword in child class we mush call the constructor of the parent class
+//Using Super it will be more code reusability

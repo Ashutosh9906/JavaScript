@@ -36,6 +36,7 @@
   - [30. STATIC keyword](#30-static-keyword)
   - [31. Inheritance](#31-inheritance)
   - [32. super Keyword](#32-super-keyword)
+  - [33. getters, setters](#33-getters-setters)
 
 ## 0. Extra`s
 ```javascript
@@ -836,11 +837,20 @@ class Animal{
         this.name = name;
         this.age = age;
     }
+
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`)
+    }
 }
 class Rabbit extends Animal{
     constructor(name, age, runSpeed){
         super(name, age);
         this.runSpeed = runSpeed;
+    }
+
+    run(){
+        console.log(`This ${this.name} can run`)
+        super.move(this.runSpeed);
     }
 }
 class Fish extends Animal{
@@ -848,11 +858,21 @@ class Fish extends Animal{
         super(name, age);
         this.swimSpeed = swimSpeed;
     }
+
+    swim(){
+        console.log(`This ${this.name} can swim`);
+        super.move(this.swimSpeed);
+    }
 }
 class Hawk extends Animal{
     constructor(name, age, flySpeed){
         super(name, age);
         this.flySpeed = flySpeed;
+    }
+
+    fly(){
+        console.log(`This ${this.name} can fly`);
+        super.move(this.flySpeed);
     }
 }
 
@@ -864,6 +884,59 @@ console.log(fish.name);
 console.log(fish.age);
 console.log(fish.swimSpeed)
 
+rabbit.run();
+fish.swim();
+hawk.fly();
+
 //Before using this keyword in child class we mush call the constructor of the parent class
 //Using Super it will be more code reusability
 ``` 
+
+## 33. getters, setters
+- `getter` -> Special method that makes the property readable
+- `setter` -> Special methot that makes the property writable
+- Validate and modify a value when reading/writing a property
+```javascript
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth; //here this_width implies that this is an private propert
+        }
+        else{
+            console.error("Width must be positive number!");
+        }
+    }
+
+    set height(newHeight){
+        if(newHeight > 0){
+            this._height = newHeight; //here this_width implies that this is an private propert
+        }
+        else{
+            console.error("Height must be positive number!");
+        }
+    }
+
+    get width(){
+        return this._width;
+    }
+
+    get height(){
+        return this._height;
+    }
+
+    get area(){
+        return this._width * this._height;
+    }
+}
+const rectangle = new Rectangle(3, 4);
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+```  
+- While assigning values initialy to an object we can got through setters to go through some validation

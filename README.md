@@ -40,6 +40,11 @@
   - [34. Destructuring](#34-destructuring)
   - [35. Nested Objects](#35-nested-objects)
   - [36. Array objects](#36-array-objects)
+  - [37. Sort()](#37-sort)
+  - [38. Shuffle an array](#38-shuffle-an-array)
+  - [39. Date objects](#39-date-objects)
+  - [40. Closures](#40-closures)
+  - [41. setTimeout()](#41-settimeout)
 
 ## 0. Extra`s
 ```javascript
@@ -1094,3 +1099,150 @@ console.log(maxFruits);
 ``` 
 - Uisng `reduce` we can create an array which will pass condition, a bit same like `filter`
 - [To Table of Content](#table-of-content)
+
+## 37. Sort()
+- Method to sort element of an array in a place
+- Sort element as string in `Lexicographic` order, not `alphabetical`
+- `Lexicographic` -> (alphabet, number, symbol) as string
+```javascript
+const numbers = [1, 10, 4, 5, 6 ,2, 45, 76, 55];
+
+numbers.sort();
+console.log(numbers); //OUTPUT -> [1, 10, 2, 4, 45, 5, 55, 6, 76]
+``` 
+- Example of sorting lexicographically
+```javascript
+const numbers = [1, 10, 4, 5, 6 ,2, 45, 76, 55];
+
+numbers.sort((a, b) => a -b); //will return a -ve, 0, +ve value
+console.log(numbers); //[1, 10, 2, 4, 45, 5, 55, 6, 76]
+``` 
+- We will examine two contigious values
+- using `a - b` the sort method will be carries accordingly ans will sort the array `Ascendingly`
+- For sorting the `Descendingly` use `b - a` insted of `a - b`
+```javascript
+const people = [{name: "Spongebob", age: 30, gpa: 3.0}, 
+                {name: "Patrick", age: 37, gpa: 2.0}, 
+                {name: "Squidward", age: 50, gpa: 4.0}, 
+                {name: "Sandy", age: 27, gpa: 2.7}]
+
+const peoples = people.sort((a, b) => a.name.localeCompare(b.name));
+console.log(peoples)
+``` 
+- To sort the name in an array of an object we can use `a.name.localeCompare(b.name)` this will sort the name `Lexicographly`
+- For reverse sorting use `b.name.localeCompare(a.name)`
+- Remaining sortinng will be smae as abive examples
+- [To Table of Content](#table-of-content)
+
+## 38. Shuffle an array 
+- Shuffling the elements of an array using an dedicated function insted of `card.sort(() => Math.random() - 0.5)`
+```javascript
+const card = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 'J', 'Q', 'K']
+
+shuffle(card);
+
+console.log(card);
+
+function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const random = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[random]] = [array[random], array[i]];
+    }
+}
+``` 
+- [To Table of Content](#table-of-content)
+
+
+## 39. Date objects
+- Object that contains the values that represent date and times
+- These objects can be changed and formated
+```javascript
+const date = new Date();
+console.log(date);
+```
+- This will an output of `Sat Apr 26 2025 16:46:05 GMT+0530 (India Standard Time)`
+- Format of Date is as follows -> `Date(year, month, day, hour, minute, second, ms)`
+- Here everything is normal except for year "0 -> January" and further vice versa
+```javascript
+const date = new Date("2024-01-02T12:00:00Z");
+console.log(date);
+``` 
+- Gives an output like -> Tue Jan 02 2024 17:30:00 GMT+0530 (India Standard Time)
+```javascript
+const date = new Date(170000000000); //Date(0) -> Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+console.log(date);
+``` 
+- When we pass `170000000000` we tell the date() to give an date an time which is 170000000000ms ahead of `Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)`
+```javascript
+const date = new Date();
+
+const year = date.getFullYear();
+const month = date.getMonth();
+const day = date.getDate();
+const hour = date.getHours();
+const minute = date.getMinutes();
+const seconds = date.getSeconds();
+const dayOfWeek = date.getDay();
+
+console.log(year);
+console.log(month);
+console.log(day);
+console.log(hour);
+console.log(minute);
+console.log(seconds);
+console.log(dayOfWeek);
+``` 
+- This block of code will an specific segrigated date time year etc
+- We can also set the time using `date.set(parameter)(time wanted to be passed)`
+```javascript
+const date1 = new Date(2024-12-31);
+const date2 = new Date(2023-1-1);
+
+if(date1 > date2){
+    console.log("Happy New Year")
+}
+```
+- We can also compare two dates
+- [To Table of Content](#table-of-content)
+
+## 40. Closures
+- A function defined inside of another function, the inner function has access to variables and scope of outer function
+- Allow for private variables and state maintenance
+- Use frequently in JS frameworks: React, vue, Angular
+```javascript
+function createCounter(){
+    let count = 0; //Act's like an private data, can't be accessed or changed outside the function
+
+    function increment(){
+        count++;
+        console.log(`Count increased to ${count}`);
+    }
+
+    function getCount(){
+        return count;
+    }
+
+    return {increment, getCount}; //returning an object which has reference to the functions 
+}
+
+const counter = createCounter();
+
+counter.increment();
+counter.increment();
+counter.increment();
+counter.increment();
+console.log(counter.count); //undefined
+console.log(`The current count is ${counter.getCount()}`) //Will print count
+```      
+- [TO Table of Content](#table-of-content)
+
+## 41. setTimeout()
+- Function in javascript that allowss you to schedule the execution of a function after a moment of time(millisecond)
+- Times are approximate (Varies based on the workload of javascript runtime env)
+- setTimeout(callBack, delay)
+- clearTimeout(timeoutId) = can cancel a timeout before it triggers
+```javascript
+const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+clearTimeout(timeoutId); //this line will stop the execution of above line
+```  

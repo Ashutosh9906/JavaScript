@@ -1,41 +1,25 @@
-class Rectangle{
-    constructor(width, height){
-        this.width = width;
-        this.height = height;
-    }
+const fruits = [{name: "Apple", color: "red", calories: 95}, 
+                {name: "Orange", color: "prange", calories: 45}, 
+                {name: "Banana", color: "yellow", calories: 105}, 
+                {name: "Coconut", color: "white", calories: 25}, 
+                {name: "Pineapple", color: "yellow", calories: 37}]
 
-    set width(newWidth){
-        if(newWidth > 0){
-            this._width = newWidth; //here this_width implies that this is an private propert
-        }
-        else{
-            console.error("Width must be positive number!");
-        }
-    }
+fruits.push({name: "Grapes", color: "Green", calories: 62})
+//Also can be used for pop() to remove the last object
 
-    set height(newHeight){
-        if(newHeight > 0){
-            this._height = newHeight; //here this_width implies that this is an private propert
-        }
-        else{
-            console.error("Height must be positive number!");
-        }
-    }
+// fruits.splice(1, 2)
 
-    get width(){
-        return this._width;
-    }
+// console.log(fruits) //arrayname[index].name_propert(ofObject)
 
-    get height(){
-        return this._height;
-    }
+// fruits.forEach(fruit => console.log(fruit.name))
 
-    get area(){
-        return this._width * this._height;
-    }
-}
-const rectangle = new Rectangle(3, 4);
+// const fruitsName = fruits.map(fruit => fruit.name); //return name of fruits
+// const fruitColor = fruits.map(fruit => fruit.color);
+// console.log(fruitsName);
+// console.log(fruitColor);
 
-console.log(rectangle.width);
-console.log(rectangle.height);
-console.log(rectangle.area);
+// const yellowFruits = fruits.filter(fruit => fruit.color === "yellow"); //return the object of array having color "yellow"
+// console.log(yellowFruits);
+
+const maxFruits = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max); //return the object of array having highest amount of calories
+console.log(maxFruits);

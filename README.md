@@ -37,6 +37,9 @@
   - [31. Inheritance](#31-inheritance)
   - [32. super Keyword](#32-super-keyword)
   - [33. getters, setters](#33-getters-setters)
+  - [34. Destructuring](#34-destructuring)
+  - [35. Nested Objects](#35-nested-objects)
+  - [36. Array objects](#36-array-objects)
 
 ## 0. Extra`s
 ```javascript
@@ -826,7 +829,8 @@ console.log(rabbits.isAlive);
 rabbits.eat();
 fishs.eat()
 hawks.eat()
-```  
+```
+- [To Table of Content](#table-of-content)  
 
 ## 32. super Keyword
 - Keyword is used in classes to call the constructor or access the properties and methods of a parent (superclass)
@@ -891,6 +895,7 @@ hawk.fly();
 //Before using this keyword in child class we mush call the constructor of the parent class
 //Using Super it will be more code reusability
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 33. getters, setters
 - `getter` -> Special method that makes the property readable
@@ -940,3 +945,152 @@ console.log(rectangle.height);
 console.log(rectangle.area);
 ```  
 - While assigning values initialy to an object we can got through setters to go through some validation
+- [To Table of Content](#table-of-content) 
+
+## 34. Destructuring
+- Extracts value from arrays and objects, then assign them to variables in convinent way
+- `[]` -> To perform array destruction
+- `{}` -> To perform object destructing
+```javascript
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a]; //marked
+
+console.log(a);
+console.log(b);
+```
+- -------> Example 1(Swapping of two numbers)
+- On the L.H.S of equal to we are performing `destructing`
+- On the R.H.S of equal to we are performing `Creation of new array`
+```javascript
+let colors = ["Red", "Green", "Blue", "Black", "White"];
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+
+console.log(colors);
+``` 
+- -------> Example 2(Swapping elements of array)
+- Works same like abbove explanantion
+- It all works like swap colors[0] <---> colors[4] & colors[4] <---> colors[0]
+- First element of R.H.S. will swap with first element of L.H.s and vice versa
+```javascript
+let colors = ["Red", "Green", "Blue", "Black", "White"];
+
+const [firstColor, secondColor, thirdColor, ...restColor] = colors
+
+console.log(firstColor); //red
+console.log(secondColor); //green
+console.log(thirdColor); //blue
+console.log(restColor); //["bleck", "white"]
+``` 
+- -------> Example 3(Assign array elements to variable)
+- In above example "firstColor", "secondColor" and "thirdColor" are variables
+- "restColor" is an array which stores colors rest then by storing in variables 
+```javascript
+const person1 = {
+    firstName : "Ashutosh",
+    lastName : "Gandule",
+    age : 18,
+}
+
+const {firstName, lastName, age, job="Unemployed"} = person1; //We can set default value while extracting like used here in case of "job"
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+``` 
+- -------> Example 4(Extracting values from an object)
+- The name of variable in {} must match to name of variable in the object
+```javascript
+function displayPerson({firstName, lastName, age, job="Unemployed"}){
+    console.log(`Name: ${firstName} ${lastName}`);
+    console.log(`Age: ${age}`);
+    console.log(`Job: ${job}`);
+}
+
+const person1 = {
+    firstName : "Ashutosh",
+    lastName : "Gandule",
+    age : 18,
+}
+
+displayPerson(person1);
+``` 
+- ------> Examlpe 5(Destructuring in Function Parameters)
+- [To Table of Content](#table-of-content) 
+
+## 35. Nested Objects
+- Objects inside of another objects, Allow you to represent more complex datastructure
+- child object is enclosed by an parent object
+- E.x. -> Person{Address{}, ContactInfo{}}
+```javascript
+const person = {
+    firstName : "Spongebob",
+    lastName : "Squarepants",
+    age : 24,
+    isStudent : true,
+    hobbies : ["Karate", "Cooking", "JellyFishing"],
+    address : {
+        street : "124 consch st.",
+        city : "Bikini Bottom",
+        country : "Int. waters",
+    }
+}
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person.hobbies[1]);
+console.log(person.address.street);
+console.log(person.address.city);
+console.log(person.address.country);
+
+//We can also loop through the objects
+for (const property in person.address){
+    console.log(person.address[property]) //124 consch st. Bikini Bottom Int. waters
+}
+
+```
+- [To Table of Content](#table-of-content)
+
+## 36. Array objects
+```javascript
+const fruits = [{name: "Apple", color: "red", calories: 95}, 
+                {name: "Orange", color: "prange", calories: 45}, 
+                {name: "Banana", color: "yellow", calories: 105}, 
+                {name: "Coconut", color: "white", calories: 25}, 
+                {name: "Pineapple", color: "yellow", calories: 37}]
+
+console.log(fruits[0].name) //arrayname[index].name_propert(ofObject)
+```
+- We can access each propert of object using the last line of code in the above block
+```javascript
+fruits.push({name: "Grapes", color: "Green", calories: 62})
+//Also can be used for pop() to remove the last object
+``` 
+- We can add more objects to the array using `push` as well as delete the object using `pop`
+```javascript
+fruits.forEach(fruit => console.log(fruit.name))
+```  
+- We can also access each property using `forEach loop`
+```javascript
+const fruitsName = fruits.map(fruit => fruit.name); //return name of fruits
+const fruitColor = fruits.map(fruit => fruit.color);
+console.log(fruitsName);
+console.log(fruitColor);
+``` 
+- Using `map` we can create an seperate array of specific propert of the object
+```javascript
+const yellowFruits = fruits.filter(fruit => fruit.color === "yellow"); //return the object of array having color "yellow"
+console.log(yellowFruits);
+``` 
+- Using `filter` we can create an array of proprty of object which pass the condition provided
+```javascript
+const maxFruits = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max); //return the object of array having highest amount of calories
+console.log(maxFruits);
+``` 
+- Uisng `reduce` we can create an array which will pass condition, a bit same like `filter`
+- [To Table of Content](#table-of-content)

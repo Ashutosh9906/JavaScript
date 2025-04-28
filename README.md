@@ -45,6 +45,9 @@
   - [39. Date objects](#39-date-objects)
   - [40. Closures](#40-closures)
   - [41. setTimeout()](#41-settimeout)
+  - [42. ES6 Module](#42-es6-module)
+  - [43. asynchronous code](#43-asynchronous-code)
+  - [44. Errors](#44-errors)
 
 ## 0. Extra`s
 ```javascript
@@ -1246,3 +1249,103 @@ console.log(`The current count is ${counter.getCount()}`) //Will print count
 const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
 clearTimeout(timeoutId); //this line will stop the execution of above line
 ```  
+- [To Table of Content](#table-of-content)
+
+## 42. ES6 Module
+- An external file that contains reusable code that can imported into other javascript file
+- Write reusable code for many differnt apps
+- Can contains variables, classes, functions, ....and more
+- Introducesd as an part of ECMSScript 2015 update
+```javascript
+<script type="module" src="index.js"></script>
+``` 
+- Insted of only script we have to add `type` as well to inport modules externally
+- To import this `ES6` modules we have prefix all the variables, functions, ... with `export`
+```javascript
+//mathUtil.js file (ES6 Module)
+export const PI = 3.141659;
+
+export function getCircumference(radius){
+    return 2 * PI * radius;
+}
+
+export function getArea(radius){
+    return PI * radius * radius;
+}
+
+export function getVolume(radius){
+    return (4/3) * PI * radius * radius;
+}
+```
+```javascript
+//index.js file
+import {PI, getArea, getVolume, getCircumference} from './mathUtil.js'; //here we use object destructuring
+
+console.log(PI);
+const circumference = getCircumference(10);
+const area = getArea(10);
+const volume = getVolume(10);
+
+console.log(`${circumference.toFixed(2)}cm`);
+console.log(`${area.toFixed(2)}cm^2`);
+console.log(`${volume.toFixed(2)}cm^3`);
+``` 
+- [To Table of Content](#table-of-content)
+
+## 43. asynchronous code
+- `synchronous` -> Executes line by line consecutively in a sequentialy manner
+- A code that waits for an operation to complete
+- `asynchronous` -> Allows multiple operations to be performed concurrently withour waiting 
+- Doesn't block the execution flow and allows the program to continue
+- (I/O operations, network request, fetching data,)
+- Handeled with: Callbacks, promises, Async/Awaits
+```javascript
+setTimeout(() => console.log("Task 1"), 3000) 
+console.log("Task 2");
+console.log("Task 3");
+console.log("Task 4");
+```  
+- We can use `setTimeout()` function to add delay to print "Task 1" which asynchronous
+```javascript
+function func1(callback){
+    setTimeout(() => {console.log("Task 1");
+                      callback()}, 3000)
+}
+function func2(){
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
+func1(func2);
+``` 
+- We can do the same thing using function callbacks
+
+## 44. Errors
+- `error` -> An object that is created to represent a problem that occurs, Occur often when taking user inputs or establishing a connection
+- `try { }` -> Enclose code that might potentially cause an error
+- `catch { }` -> Catch and handle any thrown Errors from try { }
+- `finnaly { }` -> (optional) Always executes. Used mostly for clean up, E.x. close files, close connection, release resources
+- Errors can be generated for all sorts of issues like `NETWORK ERROR`, `PROMISE REJECTION`, `SECURITY ERROR`
+```javascript
+try{
+    const divident = Number(window.prompt("Enter a divident: "));
+    const divisor = Number(window.prompt("Enter a divisor: "));
+
+    if(divisor == 0){
+        throw new Error("You can't divide by zero!");
+    }
+    if(isNaN(divisor) || isNaN(divident)){
+        throw new Error("Values must be a number!")
+    }
+
+    const result = divident/divisor;
+    console.log(result);
+}
+catch(error){
+    console.error(error);
+}
+
+console.log("You have reached the end!");
+//Above line will always be executed ass we have managed to handle error if any occur 
+``` 
+- [To Table of Content](#table-of-content)

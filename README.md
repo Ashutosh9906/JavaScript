@@ -48,6 +48,13 @@
   - [42. ES6 Module](#42-es6-module)
   - [43. asynchronous code](#43-asynchronous-code)
   - [44. Errors](#44-errors)
+  - [45. DOM](#45-dom)
+  - [46. Element selectors](#46-element-selectors)
+    - [1. document.getElementById()](#1-documentgetelementbyid)
+    - [2. document.getElementsClassName()](#2-documentgetelementsclassname)
+    - [3. document.getElementByTagName()](#3-documentgetelementbytagname)
+    - [4. document.querySelector()](#4-documentqueryselector)
+    - [5. document.querySelectorAll()](#5-documentqueryselectorall)
 
 ## 0. Extra`s
 ```javascript
@@ -75,6 +82,10 @@
     //To give any number a precission of 'x' digit after decimal
     let num = 15;
     console.log(`$${num.toFixed(2)}`) //-> 15.00
+
+    //dir
+    console.dir(document);
+    //This will list all of the propert of the object (documetn)
 ```
 - [To Table of Content](#table-of-content)
 
@@ -1348,4 +1359,102 @@ catch(error){
 console.log("You have reached the end!");
 //Above line will always be executed ass we have managed to handle error if any occur 
 ``` 
+- [To Table of Content](#table-of-content)
+
+## 45. DOM
+- Object that represents the page you see in the web browser and provides you with an API to interact with it
+- Web broweser constructs the DOM when it loads as HTML document, and structures all the elements in a tree-like representation
+- Javascript can access the DOM to dynamically change the content, structure, and style of thw web page
+```javascript
+const username = "";
+const welcomeMsg = document.getElementById("welcomeMsg"); //getElementById("") was the API key to access DOM
+
+welcomeMsg.textContent += username === "" ? ' Guest' : username;
+``` 
+- [TO Table of Content](#table-of-content)
+
+## 46. Element selectors
+- Methods used to target and manipulate HTML elements 
+- They allow you to select one or multiple HTML elements from the `DOM` (Document Object Model)
+- Some Element selectors
+  1. document.getElementById()       //ELEMENT OR NULL
+  2. document.getElementsClassName() //HTML COLLECTION
+  3. document.getElementByTagName()  //HTML COLLECTION
+  4. document.querySelector()        //ELEMENT OR NULL
+  5. document.querySelectorAll()     NODELIST
+### 1. document.getElementById()
+```javascript
+const username = "";
+const welcomeMsg = document.getElementById("welcomeMsg");
+
+welcomeMsg.style.backgroundColor = "yellow";
+welcomeMsg.style.textAlign = "center"
+
+console.log(welcomeMsg); //This will give the h1 element with all the style applied on it
+```
+- If we misspelled the id it return `Null` or the `Element` itself
+### 2. document.getElementsClassName()
+- It will return `HTML COLLECTION`
+- `HTML COLLECTION` are live they update automaticilay in the `DOM`
+- It is bit similar to array but technically it's not the same
+- `HTML COLLECTION` are iterable, can't use `forEach()`
+- We can access elements of collection by using index NO
+```javascript
+const fruits = document.getElementsByClassName("fruits");
+
+console.log(fruits);
+//This will return an HTMl collection with all the elements having the class fruits
+//All the elements are assigned a contigious number starting with 0
+
+for(let fruit of fruits){
+    fruit.style.backgroundColor = "yellow";
+}
+//This will iterate through all the class elements
+
+Array.from(fruits).forEach(fruit => { //thus will return an array 
+    fruit.style.backgroundColor = "yellow"
+})
+//To use forEach method for fruits we first have to typecast fruits as an array
+```
+### 3. document.getElementByTagName()
+- It act same as like of the above topic
+```javascript
+const h4Element = document.getElementsByTagName("h4");
+const LiElements = document.getElementsByTagName("li")
+
+console.log(h4Element);
+//Works same as like it does to ByClassname
+
+h4Element[0].style.backgroundColor = "hsl(0, 0%, 85%)";
+h4Element[1].style.backgroundColor = "hsl(0, 0%, 85%)";
+for(let LiElement of LiElements){
+    LiElement.style.backgroundColor = "hsl(88, 100.00%, 50.00%)"
+}
+```
+- we can typrcast the `h4Element` as an array to apply it functions like `forEach()` loop
+### 4. document.querySelector()
+- It return `ELEMENT OR NULL`
+- It will return the first occurence of the element
+- If no mathch found it return `NULL`
+- We can also select an class using `.classname`
+```javascript
+let element = document.querySelector("ul")
+element.style.backgroundColor = "yellow";
+console.log(element);
+```
+### 5. document.querySelectorAll()
+- This returns a `NODELIST`
+- `NODELIST` is similar to `HTML COLLECTION` except it has builtin methods 
+- `NODELIST` are statics, so they do not update automatically in the `DOM`
+```javascript
+const fruits = document.querySelectorAll("ul")
+
+fruits[0].style.backgroundColor = "red";
+console.log(fruits);
+// Or we can use forEach() as it has built in methods
+
+fruits.forEach(fruit => {
+    fruit.style.backgroundColor = "yellow";
+})
+```
 - [To Table of Content](#table-of-content)

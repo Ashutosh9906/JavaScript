@@ -1,19 +1,9 @@
-try{
-    const divident = Number(window.prompt("Enter a divident: "));
-    const divisor = Number(window.prompt("Enter a divisor: "));
+const fruits = document.querySelectorAll("ul")
 
-    if(divisor == 0){
-        throw new Error("You can't divide by zero!");
-    }
-    if(isNaN(divisor) || isNaN(divident)){
-        throw new Error("Values must be a number!")
-    }
+// fruits[0].style.backgroundColor = "red";
+// console.log(fruits);
+// Or we can use forEach() as it has built in methods
 
-    const result = divident/divisor;
-    console.log(result);
-}
-catch(error){
-    console.error(error);
-}
-
-console.log("You have reached the end!");
+fruits.forEach(fruit => {
+    fruit.style.backgroundColor = "yellow";
+})

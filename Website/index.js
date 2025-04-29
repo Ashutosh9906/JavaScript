@@ -1,9 +1,6 @@
-const fruits = document.querySelectorAll("ul")
+const element = document.getElementById("fruits");
+const children = element.children;
 
-// fruits[0].style.backgroundColor = "red";
-// console.log(fruits);
-// Or we can use forEach() as it has built in methods
-
-fruits.forEach(fruit => {
-    fruit.style.backgroundColor = "yellow";
+Array.from(children).forEach(childrens => {
+    childrens.style.backgroundColor = "yellow"
 })

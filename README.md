@@ -55,6 +55,14 @@
     - [3. document.getElementByTagName()](#3-documentgetelementbytagname)
     - [4. document.querySelector()](#4-documentqueryselector)
     - [5. document.querySelectorAll()](#5-documentqueryselectorall)
+  - [47. DOM Navigation](#47-dom-navigation)
+    - [1. .firstElementChild](#1-firstelementchild)
+    - [2. lastElementChild](#2-lastelementchild)
+    - [3. .nextElementChild](#3-nextelementchild)
+    - [4. .previousElementChild](#4-previouselementchild)
+    - [5. .parentElement](#5-parentelement)
+    - [6. .children](#6-children)
+  - [48. Add \& change HTML](#48-add--change-html)
 
 ## 0. Extra`s
 ```javascript
@@ -1458,3 +1466,109 @@ fruits.forEach(fruit => {
 })
 ```
 - [To Table of Content](#table-of-content)
+
+## 47. DOM Navigation
+- The process of navigating through structures of an HTML document using `javascript`
+```html
+    <ul id="fruits">     <!--parent -->
+        <li>Apple</li>   <!--firstBorn-->
+        <li>Orange</li>  <!--secondBorn-->
+        <li>Coconut</li> <!--thirdBorn-->
+    </ul>
+
+    <ul id="Vagetables">
+        <li>Onion</li>
+        <li>Carrot</li>
+        <li>potatoes</li>
+    </ul>
+
+    <ul id="desert">
+        <li>cake</li>
+        <li>pie</li>
+        <li>ice cream</li>
+    </ul>
+```
+- This is the `HTML` file which we are gonna try `DOM NAVIGATON`
+- DOM NAVIGATION can be done using
+  1. .firstElementChild
+  2. .lastElementChild
+  3. .nextElementSibling
+  4. .previousElementSibling
+  5. .parentElement
+  6. .children
+### 1. .firstElementChild
+```javascript
+const ulElement = document.querySelectorAll("ul");
+
+ulElement.forEach(ulElements => {
+    const firstChild = ulElements.firstElementChild;
+    firstChild.style.backgroundColor = "yellow"
+})
+```
+- Following code will set backgroundColor of firstChild of all ul element to yellow
+### 2. lastElementChild
+```javascript
+const ulElement = document.querySelectorAll("ul");
+
+ulElement.forEach(ulElements => {
+    const firstChild = ulElements.lastElementChild;
+    firstChild.style.backgroundColor = "yellow"
+})
+```
+- Following code will set backgroundColor of lastChild of all ul element to yellow
+### 3. .nextElementChild
+- There will be i small change in HTML file we will be assigning id to each `li` element
+```javascript
+const element = document.getElementById("fruits");
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "yellow"
+```    
+- If we choose an `ul` itself with it's id the imediate next `ul` will be highlighted
+### 4. .previousElementChild
+```javascript
+const element = document.getElementById("desert");
+const nextSibling = element.previousElementSibling;
+nextSibling.style.backgroundColor = "yellow"
+``` 
+- If we choose an `ul` itself with it's id the imediate before `ul` will be highlighted
+### 5. .parentElement
+```javascript
+const element = document.getElementById("pie");
+const nextSibling = element.parentElement;
+nextSibling.style.backgroundColor = "yellow"
+``` 
+- This will highlight the parent element of selected element
+- In our case we have choosen `pie` of `desert` so entire desert ul will be highlighted
+### 6. .children
+```javascript
+const element = document.getElementById("fruits");
+const children = element.children;
+
+Array.from(children).forEach(childrens => {
+    childrens.style.backgroundColor = "yellow"
+})
+```
+- As `.children` dont't have buitIn function we have to type cast it into array and use buildIn functions
+- In above example we are highlighting the child of the ul fruits
+- We can also access every child using index number
+- [To Table of Content](#table-of-content)
+
+## 48. Add & change HTML
+- This are some shanges in `html` file
+```javascript
+    <div id="box1" class="box">
+        <p>Box1</p>
+    </div>
+
+    <div id="box2" class="box">
+        <p>Box2</p>
+    </div>
+
+    <div id="box3" class="box">
+        <p>Box3</p>
+    </div>
+
+    <div id="box3" class="box">
+        <p>Box3</p>
+    </div>
+```  

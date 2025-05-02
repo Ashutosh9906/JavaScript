@@ -66,6 +66,7 @@
   - [49. Mouse Events](#49-mouse-events)
   - [50. Key Events](#50-key-events)
   - [51. Hide/Show html](#51-hideshow-html)
+  - [52. NodeLists](#52-nodelists)
 
 ## 0. Extra`s
 ```javascript
@@ -1645,6 +1646,7 @@ document.addEventListener("keyup", event => {  //the page provides an object tha
     myBox.textContent = "😤";
 })
 ``` 
+- [To Table of Content](#table-of-content)
 
 ## 51. Hide/Show html
 ```javascript
@@ -1668,3 +1670,59 @@ myBtn.addEventListener("click", event => {
   - display -> visibility
   - none -> hidden
   - block -> visible 
+- [To Table of Content](#table-of-content)
+
+## 52. NodeLists
+- Static collection of HTML elements by (id, class, element)
+- Can be created by using querySelectorAll()
+- Similar to an array, but no (map, filter, reduce)
+- NodeList won't update to automatically reflect changes
+```javascript
+let buttons = document.querySelectorAll(".myButton");
+
+buttons.forEach(button => {
+    button.style.backgroundColor = "green";
+    button.textContent += "😤";
+})
+```
+- Using forEach() method we cann access all the buttons using it's class also known as nodelist
+- Same goes for while using `.addEventListner` we itterate through all the elements using nodeLists
+```javascript
+let buttons = document.querySelectorAll(".myButton");
+
+const newButton = document.createElement("button"); //step1
+newButton.textContent = "Button 5"; //step2
+newButton.classList = "myButton"; //step3
+document.body.appendChild(newButton); //step4
+
+console.log(buttons) //A collection first four buttons
+```
+- As `nodeLists` are static collections it won't update automatically to reflect changes
+- To reflect the changes made in rhe nodelist we have to update it manually
+```javascript
+let buttons = document.querySelectorAll(".myButton");
+
+const newButton = document.createElement("button"); //step1
+newButton.textContent = "Button 5"; //step2
+newButton.classList = "myButton"; //step3
+document.body.appendChild(newButton); //step4
+
+buttons = document.querySelectorAll(".myButton") //💡
+
+console.log(buttons) //A collection first four buttons
+```  
+- To update the nodeList we manually add the marked line to update the DOM
+- To remove any element (in our case a button)
+```javascript
+let buttons = document.querySelectorAll(".myButton");
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+        //But to update the Dom we have to redefine it
+        buttons = document.querySelectorAll(".myButton");
+        console.log(buttons);
+    })
+})
+``` 
+- [To Table of Content](#table-of-content)

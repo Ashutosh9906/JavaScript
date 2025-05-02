@@ -1,4 +1,9 @@
-#myBtn{
-    font-size: 2rem;
-    margin-bottom: 15px;
+.myButton{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: hsl(318, 100%, 50%);
+    color: white;
 }

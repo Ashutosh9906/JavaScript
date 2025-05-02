@@ -1,14 +1,10 @@
-const myImg = document.getElementById("myImg");
-const myBtn = document.getElementById("myBtn");
+let buttons = document.querySelectorAll(".myButton");
 
-myBtn.addEventListener("click", event => {
-
-    if(myImg.style.visibility === "hidden"){
-        myImg.style.visibility = "visible";
-        myBtn.textContent = "HIDE"
-    }
-    else{
-        myImg.style.visibility = "hidden";
-        myBtn.textContent = "SHOW"
-    }
-});
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+        //But to update the Dom we have to redefine it
+        buttons = document.querySelectorAll(".myButton");
+        console.log(buttons);
+    })
+})

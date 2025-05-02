@@ -1,5 +1,4 @@
-.box{
-    border: 3px solid;
-    width: 100%;
-    height: 125px;
+#myBtn{
+    font-size: 2rem;
+    margin-bottom: 15px;
 }

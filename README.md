@@ -63,6 +63,9 @@
     - [5. .parentElement](#5-parentelement)
     - [6. .children](#6-children)
   - [48. Add \& change HTML](#48-add--change-html)
+  - [49. Mouse Events](#49-mouse-events)
+  - [50. Key Events](#50-key-events)
+  - [51. Hide/Show html](#51-hideshow-html)
 
 ## 0. Extra`s
 ```javascript
@@ -1599,3 +1602,69 @@ document.body.insertBefore(newH1, boxes[2]);
 //STEP 4 REMOVE HTML ELEMENT
 document.getElementById("box1").removeChild(newH1); //This will remove the newH1 from the box1
 ``` 
+- [To Table of Content](#table-of-content)
+
+## 49. Mouse Events
+- `eventListner` -> Listen for specific events to create interactive web pages
+- {Events} => click, mouseover, mouseout
+- `.addEventListner(event, callback);`
+- Event can have more than one .eventListner
+```javascript
+const myBox = document.getElementById("myBox");
+const myBtn = document.getElementById("myBtn");
+
+myBtn.addEventListener("click", event => {  //the page provides an object that describes the action on the object
+    myBox.style.backgroundColor = "tomato";
+    myBox.textContent = "OUCH 🤕";
+})
+
+myBtn.addEventListener("mouseover", event => {  //the page provides an object that describes the action on the object
+    myBox.style.backgroundColor = "yellow";
+    myBox.textContent = "Don't do it 😮";
+})
+
+myBtn.addEventListener("mouseout", event => {  //the page provides an object that describes the action on the object
+    myBox.style.backgroundColor = "lightGreen";
+    myBox.textContent = "My Box 😤";
+})
+``` 
+- [To Table of Content](#table-of-content)
+
+## 50. Key Events
+- It will pass an event when we will press any key
+```javascript
+const myBox = document.getElementById("myBox");
+
+document.addEventListener("keydown", event => {  //the page provides an object that describes the action on the object
+    myBox.style.backgroundColor = "tomato";
+    myBox.textContent = "🤕";
+})
+
+document.addEventListener("keyup", event => {  //the page provides an object that describes the action on the object
+    myBox.style.backgroundColor = "lightGreen";
+    myBox.textContent = "😤";
+})
+``` 
+
+## 51. Hide/Show html
+```javascript
+const myImg = document.getElementById("myImg");
+const myBtn = document.getElementById("myBtn");
+
+myBtn.addEventListener("click", event => {
+
+    if(myImg.style.visibility === "hidden"){
+        myImg.style.visibility = "visible";
+        myBtn.textContent = "HIDE"
+    }
+    else{
+        myImg.style.visibility = "hidden";
+        myBtn.textContent = "SHOW"
+    }
+});
+```
+- To not to move the buttont to the top of page we use `visibility` insted of `display`
+- we changed in (myImg.style.visibility)
+  - display -> visibility
+  - none -> hidden
+  - block -> visible 

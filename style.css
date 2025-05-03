@@ -41,5 +41,5 @@ body{
 .flex-item img:hover{
     transform: scale(1.07);
     transition: 1s;
-    box-shadow: 4px 4px 20px rgb(255, 0, 225);
+    box-shadow: 10px 10px 20px rgb(255, 0, 225);
 }

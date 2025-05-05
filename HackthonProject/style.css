@@ -1,0 +1,49 @@
+.header{
+    background-color: #ff6f61;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+nav ul li{
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+.hero{
+    text-align: center;
+    color: #333;
+    margin: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#Image{
+    width: 50%;
+}
+button{
+    font-size: 3rem;
+    width: 400px;
+    height: 250px;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff8000;
+    color: hsl(0, 0%, 100%); 
+    box-shadow: 2px 2px 2px black;  
+}
+#myBtn{
+    text-align: center;
+}
+button:hover{
+    transform: scale(1.05);
+    transition: 0.8s;
+    box-shadow: 4px 4px 20px hsl(0, 0%, 0%);
+}

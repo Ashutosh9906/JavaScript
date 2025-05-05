@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reserve.css">
+</head>
+<body>
+    <div id="container">
+        <p id="result">vdvdv</p>
+        <a href="./index.html"><button>Confirm</button></a>
+    </div>
+    <script>
+        window.onload = function() {
+            let name = localStorage.getItem("name");
+            let email = localStorage.getItem("email");
+            let date = localStorage.getItem("date");
+            let time = localStorage.getItem("time");
+            let number = localStorage.getItem("number");
+            let result = document.getElementById("result")
+            result.innerHTML = `Your table for ${number} people at ${time} on the date of ${date} has been reserved on the name of ${name}`;
+        }
+    </script>
+</body>
+</html>

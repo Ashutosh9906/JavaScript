@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./tableStyle.css">
+</head>
+
+<body>
+    <div id="container">
+        <h2>Book A Table</h2>
+        <div id="bookingForm">
+            <input type="text" placeholder="Name" id="name">
+            <input type="text" placeholder="Email" id="email">
+            <input type="date" id="date">
+            <input type="time" id="time">
+            <input type="number" min="1" value="1" id="number">
+            <button id="myBtn" onclick="setName()">Reserve</button>
+        </div>  
+    </div>
+    <script>
+        function setName() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const number = document.getElementById("number").value;
+            localStorage.setItem("name", name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("date", date);
+            localStorage.setItem("time", time);
+            localStorage.setItem("number", number);
+            window.open("reserve.html", "_self");
+        }
+    </script>
+</body>
+
+</html>

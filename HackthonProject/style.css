@@ -11,6 +11,8 @@ nav ul{
     list-style: none;
     display: flex;
     gap: 1rem;
+    cursor: pointer;
+    text-decoration: none;
 }
 nav ul li{
     color: hsl(0, 0%, 100%);
@@ -28,6 +30,7 @@ nav ul li{
 }
 button{
     font-size: 3rem;
+    font-weight: bold;
     width: 400px;
     height: 250px;
     text-align: center;
@@ -38,6 +41,7 @@ button{
     background-color: #ff8000;
     color: hsl(0, 0%, 100%); 
     box-shadow: 2px 2px 2px black;  
+    background: linear-gradient(to right, #ffff00, #f86700);
 }
 #myBtn{
     text-align: center;
@@ -45,5 +49,5 @@ button{
 button:hover{
     transform: scale(1.05);
     transition: 0.8s;
-    box-shadow: 4px 4px 20px hsl(0, 0%, 0%);
+    box-shadow: 4px 4px 10px hsl(0, 0%, 0%);
 }

@@ -10,6 +10,7 @@ body{
     background-attachment: fixed;
 }
 #container{
+    width: 650px;
     border: 2px solid black;
     text-align: center;
     padding: 10px 20px;

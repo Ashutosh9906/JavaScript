@@ -1,5 +1,8 @@
+body{
+    background: #fffaf0;
+}
 .header{
-    background-color: #ff6f61;
+    background: linear-gradient(to right, #ff6f61, #f8b500);
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -41,7 +44,7 @@ button{
     background-color: #ff8000;
     color: hsl(0, 0%, 100%); 
     box-shadow: 2px 2px 2px black;  
-    background: linear-gradient(to right, #ffff00, #f86700);
+    background: linear-gradient(to left, #ff6f61, #f8b500);
 }
 #myBtn{
     text-align: center;

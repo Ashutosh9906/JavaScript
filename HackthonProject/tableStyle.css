@@ -23,7 +23,8 @@ body{
     padding: 30px 20px;
     border: 2px solid black;
     margin: 0 auto;
-    
+    color: #FEBA17;
+    text-shadow: 4px 4px 5px black;
 }
 h2{
     text-align: center;

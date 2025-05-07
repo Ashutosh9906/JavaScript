@@ -17,12 +17,13 @@ body{
     margin: 0;
     font-size: 2rem;
     border-radius: 10px;
-    text-shadow: 1px 1px 2px rgb(0, 217, 255);
+    color: #FEBA17;
+    text-shadow: 4px 4px 5px black;
     backdrop-filter: blur(2px);
 }
 button{
     font-size: 1.8rem;
-    background-color: hsl(27, 100%, 50%);
+    background-color: hsl(42, 99%, 54%);
     border: none;
     color: hsl(0, 0%, 100%);
     border-radius: 10px;
@@ -32,5 +33,5 @@ button{
     box-shadow: 2px 2px 2px black;
 }
 button:hover{
-    background-color: hsl(27, 100%, 45%);
+    background-color: hsl(42, 99%, 44%);
 }

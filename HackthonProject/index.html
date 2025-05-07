@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Godavari</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <header class="header">
         <h1>Godavari</h1>
         <nav>
             <ul>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#table">Book A Table</a></li>
+                <li>Menu</li>
+                <li>Book A Table</li>
                 <li>Contact</li>
                 <li>Feedback</li>
             </ul>
@@ -21,13 +21,35 @@
 
     <section class="hero">
         <img src="./images/heroImage.jpg" alt="Hero Image" id="Image">
-        <h2>Welcome to Godavari</h2>
-        <h2>Just Like Mom Made It – Comfort in Every Bite</h2>
+        <h2 id="hero">Welcome to Godavari</h2>
+        <h2 id="hero">Just Like Mom Made It – Comfort in Every Bite</h2>
     </section>
     
     <div id="myBtn">
-        <a href="./menu.html"><button id="menu">Menu </button></a>
-        <a href="./table.html"><button id="table">Book a Table</button></a>
+        <a href="./menu.html"><button id="menu" class="btn">Menu </button></a>
+        <a href="./table.html"><button id="table" class="btn">Book a Table</button></a>
     </div>
+
+    <div id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>📍 Bharti BackGate, Katraj</p>
+        <p>📞 7387859906</p>
+        <p>✉️ ashutoshGandule1@gmail.com</p>
+    </div>
+
+    <div id="Feedback" class="Feedback">
+        <h2>Leave us your feedback</h2>
+        <form id="feedbackForm">
+            <input type="text" id="feedbackName" placeholder="Your Name" required><br>
+            <textarea placeholder="Your Comments" id="feedbackText"></textarea>
+            <button type="submit" id="Submit">Submit</button>
+        </form>
+        <div id="feedbackDisplay"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Hotel Godavari. All rights reserved.</p>
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>

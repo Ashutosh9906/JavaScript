@@ -5,12 +5,19 @@ body{
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
+    color: rgb(67, 31, 5);
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
 }
 #container{
     margin: 100px;
     font-size: 2rem;
 }
 #topic{
-    background-color: orange;
-    width: 600px;
+    background-color: hsl(35, 97%, 13%);
+    color: white;
+    border-radius: 10px;
+    padding: 5px 7px;
+    box-shadow: 5px 5px 10px black;
+    width: 320px;
 }

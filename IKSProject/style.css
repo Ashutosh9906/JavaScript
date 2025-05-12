@@ -62,6 +62,7 @@ header p{
 }
 .menuCard:hover{
     transform: scale(1.05);
+    box-shadow: 7px 7px 10px hsl(0, 0%, 0%);
 }
 .menuCard img{
     width: 100%;
@@ -98,6 +99,7 @@ p{
     margin-right: 50px;
 }
 #topic{
+    width: 320px;
     margin-top: 50px;
     background-color: hsl(41, 100%, 50%);
     margin-left: 15px;

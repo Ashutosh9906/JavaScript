@@ -6,3 +6,11 @@ body{
     background-attachment: fixed;
     margin: 0;
 }
+#container{
+    margin: 100px;
+    font-size: 2rem;
+}
+#topic{
+    background-color: orange;
+    width: 600px;
+}

@@ -134,4 +134,5 @@ p {
 
 #main {
     box-shadow: 7px 7px 10px black;
+    border-radius: 5px;
 }

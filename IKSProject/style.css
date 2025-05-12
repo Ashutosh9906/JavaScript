@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #fceabb, #f8b500);
+    color: #333;
+}
+header{
+    text-align: center;
+    padding: 2rem;
+    background: hsl(36, 100%, 50%);
+    color: white;
+}
+header p{
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+.CategoryNav{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.CategoryNav a{
+    background: #ff6f61;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.CategoryNav a:hover{
+    background: #ff3d00;
+}
+#menuContainer{
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem;
+}
+#menuContainer h2{
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: #ff3d00;
+}
+.menuGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.menuCard{
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 00, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.menuCard:hover{
+    transform: scale(1.05);
+}
+.menuCard img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.menuContent{
+    padding: 1rem;
+}
+.menuContent h3{
+    margin-bottom: 0.3rem
+}
+.menuContent p{
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+.price{
+    font-weight: bold;
+    color: hsl(36, 100%, 50%);
+}
+body{
+    background-image: url(../Images/IKSBackground3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+p{
+    font-size: 2rem;
+}
+#mainContainer{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#topic{
+    margin-top: 50px;
+    background-color: hsl(41, 100%, 50%);
+    margin-left: 15px;
+    margin-bottom: 20px;
+}

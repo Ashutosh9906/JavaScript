@@ -21,8 +21,13 @@ body{
     box-shadow: 5px 5px 10px black;
     width: 580px;
 }
-#img{
+#img1{
     float: left;
     margin-right: 15px;
+    height: auto;
+}
+#img2{
+    float: right;
+    margin-left: 15px;
     height: auto;
 }

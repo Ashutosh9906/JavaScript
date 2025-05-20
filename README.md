@@ -67,6 +67,9 @@
   - [50. Key Events](#50-key-events)
   - [51. Hide/Show html](#51-hideshow-html)
   - [52. NodeLists](#52-nodelists)
+  - [53. Promises](#53-promises)
+  - [54. Async/Awaits](#54-asyncawaits)
+  - [55. JSON files](#55-json-files)
 
 ## 0. Extra`s
 ```javascript
@@ -1726,3 +1729,98 @@ buttons.forEach(button => {
 })
 ``` 
 - [To Table of Content](#table-of-content)
+
+## 53. Promises
+- An object that manages asynchronous operations
+- Wrap a Promise object around {asynchronous code}
+- "I promise to return a value" PENDING -> RESOLVED or REJECTED
+- new Promise((resolve, reject) => {asynchronous code})
+```javascript
+function walkTheDog() {
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const dogWalked = true;
+
+            if (dogWalked) {
+                resolve("You walk the dog 🐕");
+            }
+            else {
+                reject("You DID'T walk the dog");
+            }
+
+        }, 1500);
+    })
+}
+function cleanTheKitchen() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const kitchenCleaned = true;
+
+            if (kitchenCleaned) {
+                resolve("You clean the Kitchen 🧹");
+            }
+            else{
+                reject("You DID'T clean the kitchen");
+            }
+
+        }, 2500);
+    })
+}
+function takeOutTrash() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            
+            const trashTakenOut = false;
+
+            if(trashTakenOut){
+                resolve("You take out the trash ♻️");
+            }
+            else{
+                reject("You DID'T take out he trash");
+            }
+        }, 500);
+    })
+}
+walkTheDog().then(value => { console.log(value); return cleanTheKitchen() })
+    .then(value => { console.log(value); return takeOutTrash() })
+    .then(value => { console.log(value); console.log("You have completed all the chores") })
+    .catch(error => console.error(error));
+``` 
+- Here `reject` acts a bit same like error handling
+- [To Table of Content](#table-of-content)
+
+## 54. Async/Awaits
+- `Async` = makes a function return a promise
+- `Await` = makes a async function wait for a promise
+- Allows you to write asynchoronous code in a synchronous manner
+- Async doesn't have resolve or reject parameters
+- Everything after the await is placed in an event quene
+- `awiat` is only valid in `async` function
+```javascript
+async function doChores(){
+
+    const walkDog = await walkTheDog();
+    console.log(walkDog);
+
+    const cleanKitchen = await cleanTheKitchen();
+    console.log(cleanKitchen);
+
+    const takeTrash = await takeOutTrash();
+    console.log(takeTrash);
+
+    console.log("You done all the chores");
+}
+
+doChores();
+``` 
+- Above example is an extended version of example from just before topic using async and await
+- [To Table of Content](#table-of-content)
+
+## 55. JSON files
+- `(Javascript object notation)` data interchange format
+- used for exchange data between a server and a web application 
+- JSON files {key:value} OR [value1, value2, value3]
+- JSON.stringfy() = converts a js object to JSON string
+- JSON.parse() = converts a JSON string to js object

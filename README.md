@@ -1824,3 +1824,26 @@ doChores();
 - JSON files {key:value} OR [value1, value2, value3]
 - JSON.stringfy() = converts a js object to JSON string
 - JSON.parse() = converts a JSON string to js object
+```javascript
+const jsonNames = ["Spongebob", "Patric", "Squidward", "Sandy"];
+
+const jsonPeople = `[
+  {"Name": "Spongebob", "Age": 30, "isEmployed": true},
+  {"Name": "Squidward", "Age": 50, "isEmployed": false},
+  {"Name": "Patric", "Age": 34, "isEmployed": true},
+  {"Name": "Sandy", "Age": 24, "isEmployed": false}
+]`;
+
+const parsedData1 = JSON.parse(jsonPeople);
+const parsedData2 = JSON.stringify(jsonNames);
+
+console.log(parsedData1);
+console.log(parsedData2);
+``` 
+- We can also fetch values from any json files using `fetch` method
+```javascript
+fetch("names.json")
+    .then(Response => Response.json())
+    .then(values => values.forEach(value => console.log(value.age)))
+    .catch(error => console.error(error));
+```  
